@@ -69,7 +69,7 @@ Branch: *{branch_name}*
 Lists environments
 
 *deploy*
-&nbsp;&nbsp;Deploy an environment
+Deploy an environment
 
 *Arguments*
 *environment_id* - ID of environment
