@@ -55,15 +55,18 @@ Branch: *{branch_name}*
 Lists environments
 
 *deploy*
- Deploy an environment
+&nbsp;&nbsp;Deploy an environment
+
 *Arguments*
- *environment_id* - ID of environment
+&nbsp;&nbsp;*environment_id* - ID of environment
+
 *Optional arguments*
- *deployed_version* - Version (Git commit) of deployed release, default latest
- *deploy_from_scratch* - Indicates whether the deployment was made from scratch, default false
- *trigger_notifications* - Indicates whether notification should be triggered, default true
+&nbsp;&nbsp;*deployed_version* - Version (Git commit) of deployed release, default latest
+&nbsp;&nbsp;*deploy_from_scratch* - Indicates whether the deployment was made from scratch, default false
+&nbsp;&nbsp;*trigger_notifications* - Indicates whether notification should be triggered, default true
+
 *Example*
- `/deploybot deploy 12345 deployed_version=eibaemauP3seukief6einei6phahpheichais7de deploy_from_scratch=true`
+`/deploybot deploy 12345 deployed_version=eibaemauP3seukief6einei6phahpheichais7de deploy_from_scratch=true`
 """
 
 
