@@ -36,6 +36,9 @@ def handler():
     args = request.form['text'].split()
     command = args.pop(0) if len(args) > 0 else None
 
+    email = slack_user['profile']['email']
+    deploybot_user = deploybot_users.get(email)
+
     if command == 'environments':
         environments = [
             """*{name}*
@@ -44,7 +47,9 @@ def handler():
 > Branch: *{branch_name}*
 """.format(**env) for env in
             deploybot.get(
-                'https://{}.deploybot.com/api/v1/environments'.format(deploybot_subdomain),
+                'https://{}.deploybot.com/api/v1/environments'.format(
+                    deploybot_subdomain,
+                ),
             ).json()['entries']
         ]
         return '\n\n'.join(environments)
@@ -57,8 +62,12 @@ def handler():
         for arg in args:
             name, value = arg.split('=')
             data.update(name=value)
+        if deploybot_user:
+            data.update(user_id=deploybot_user['id'])
         deploy = deploybot.post(
-            'https://{}.deploybot.com/api/v1/deployments'.format(deploybot_subdomain),
+            'https://{}.deploybot.com/api/v1/deployments'.format(
+                deploybot_subdomain,
+            ),
             json=data,
         ).json()
         return 'Deploying *{deployed_version}*...'.format(**deploy)
