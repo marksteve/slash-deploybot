@@ -5,16 +5,16 @@
   "keywords": [],
   "env": {
     "SLACK_API_TOKEN": {
-      "description": "https://api.slack.com/web#authentication"
+      "description": "Get from https://api.slack.com/web#authentication"
     },
     "SLACK_SLASH_COMMAND_TOKEN": {
-      "description": "https://incorgito.slack.com/services/new/slash-commands"
-    },
-    "DEPLOYBOT_API_TOKEN": {
-      "description": "https://<YOUR_SUBDOMAIN>.deploybot.com/api_keys"
+      "description": "Get from https://incorgito.slack.com/services/new/slash-commands"
     },
     "DEPLOYBOT_SUBDOMAIN": {
-      "description": "https://<YOUR_SUBDOMAIN>.deploybot.com"
+      "description": "DeployBot subdomain"
+    },
+    "DEPLOYBOT_API_TOKEN": {
+      "description": "Get from https://<YOUR_SUBDOMAIN>.deploybot.com/api_keys"
     }
   }
 }
