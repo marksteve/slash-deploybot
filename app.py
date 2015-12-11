@@ -34,7 +34,7 @@ def handler():
         abort(403)
     slack_user = slack_users[request.form['user_id']]
     args = request.form['text'].split()
-    command = args.pop(0)
+    command = args.pop(0) if len(args) > 0 else None
 
     if command == 'environments':
         environments = [
