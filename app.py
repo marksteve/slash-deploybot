@@ -49,6 +49,20 @@ Branch: *{branch_name}*
         ]
         return '\n\n'.join(environments)
 
+    if command == 'deploy':
+        environment_id = args.pop(0)
+        data = {
+            'environment_id': environment_id,
+        }
+        for arg in args:
+            name, value = arg.split('=')
+            data.update(name=value)
+        deploy = deploybot.post(
+            'https://{}.deploybot.com/api/v1/deployments'.format(deploybot_subdomain),
+            json=data,
+        ).json()
+        return 'Deploying {deployed_version}...'.format(**deploy)
+
     return """Available commands:
 
 *environments*
