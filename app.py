@@ -50,16 +50,20 @@ Branch: `{branch_name}`
         return '\n\n'.join(environments)
 
     return """Available commands:
-*environments* - Lists environments
-*deploy* - Deploy an environment
-  *Arguments*
-  - `environment_id` - ID of environment
-  *Optional arguments*
-  - `deployed_version` - Version (Git commit) of deployed release, default latest
-  - `deploy_from_scratch` - Indicates whether the deployment was made from scratch, default false
-  - `trigger_notifications` - Indicates whether notification should be triggered, default true
-  *Example*
-  `/deploybot deploy 12345 deployed_version=eibaemauP3seukief6einei6phahpheichais7de deploy_from_scratch=true`
+
+`environments`
+Lists environments
+
+`deploy`
+Deploy an environment
+*Arguments*
+`environment_id` - ID of environment
+*Optional arguments*
+`deployed_version` - Version (Git commit) of deployed release, default latest
+`deploy_from_scratch` - Indicates whether the deployment was made from scratch, default false
+`trigger_notifications` - Indicates whether notification should be triggered, default true
+*Example*
+`/deploybot deploy 12345 deployed_version=eibaemauP3seukief6einei6phahpheichais7de deploy_from_scratch=true`
 """
 
 
