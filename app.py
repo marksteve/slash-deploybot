@@ -61,7 +61,7 @@ Branch: *{branch_name}*
             'https://{}.deploybot.com/api/v1/deployments'.format(deploybot_subdomain),
             json=data,
         ).json()
-        return 'Deploying {deployed_version}...'.format(**deploy)
+        return 'Deploying *{deployed_version}*...'.format(**deploy)
 
     return """Available commands:
 
