@@ -39,9 +39,9 @@ def handler():
     if command == 'environments':
         environments = [
             """*{name}*
-ID: {id}
-Current version: {current_version}
-Branch: {branch_name}
+ID: `{id}`
+Current version: `{current_version}`
+Branch: `{branch_name}`
 """.format(**env) for env in
             deploybot.get(
                 'https://{}.deploybot.com/api/v1/environments'.format(deploybot_subdomain),
@@ -50,7 +50,16 @@ Branch: {branch_name}
         return '\n\n'.join(environments)
 
     return """Available commands:
-*environments* - _Lists environments_
+*environments* - Lists environments
+*deploy* - Deploy an environment
+  *Arguments*
+  - `environment_id` - ID of environment
+  *Optional arguments*
+  - `deployed_version` - Version (Git commit) of deployed release, default latest
+  - `deploy_from_scratch` - Indicates whether the deployment was made from scratch, default false
+  - `trigger_notifications` - Indicates whether notification should be triggered, default true
+  *Example*
+  `/deploybot deploy 12345 deployed_version=eibaemauP3seukief6einei6phahpheichais7de deploy_from_scratch=true`
 """
 
 
